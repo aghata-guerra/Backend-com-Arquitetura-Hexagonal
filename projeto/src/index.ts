@@ -4,6 +4,8 @@ import RegistrarUsuario from "./core/usuario/service/RegistrarUsuario";
 import RepositorioUsuarioSQLite from "./external/dataBase/RepositorioUsuarioSQLite";
 import SenhaCripto from "./external/auth/SenhaCripto";
 import RegistrarUsuarioController from "./external/api/RegistrarUsarioController";
+import LoginUsuario from "./core/usuario/service/LoginUsuario";
+import LoginUsarioController from "./external/api/LoginUsarioController copy";
 dotenv.config();
 
 const app = express();
@@ -22,4 +24,10 @@ const registrarUsuario = new RegistrarUsuario(
   repositorioUsuario,
   provedorCripto,
 )
+const loginUsuario = new LoginUsuario(
+
+  repositorioUsuario,
+  provedorCripto
+)
  new RegistrarUsuarioController(app, registrarUsuario)
+new LoginUsarioController(app, loginUsuario)
