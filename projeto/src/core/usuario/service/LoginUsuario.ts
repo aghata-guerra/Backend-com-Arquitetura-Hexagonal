@@ -3,6 +3,7 @@ import Usuario from "../model/Usuario";
 import RepositorioUsuario from "./RepositorioUsuario";
 import Erros from "@/core/shared/Erros";
 import ProvedorCriptografia from "./ProvedorCriptografia";
+
 export type Entrada = {
   email: string;
   senha: string;
@@ -10,7 +11,7 @@ export type Entrada = {
 
 export type Saida = { usuario: Usuario; token: string}
 
-export default class LoginUsuario implements CasosDeUso<Entrada, Saida> {
+export default class LoginUsuario implements CasosDeUso<Entrada, Usuario> {
     
     constructor(
         private repositorio: RepositorioUsuario,
